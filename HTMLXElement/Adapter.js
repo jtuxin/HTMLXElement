@@ -49,15 +49,13 @@ define(function(require, exports, module) {
         var that  = this;
         var tests = this.tests;
 
-        var types = Object.keys(tests).filter(function(type) {
+        return Object.keys(tests).filter(function(type) {
           var testArr = Array.isArray(tests[type])? tests[type] : [tests[type]];
 
           return testArr.filter(isFunction).some(function(test) {
             return test.call(that, field, descriptor);
           });
         });
-
-        return types.length > 0 ? types : null;
       }
     }
   });
