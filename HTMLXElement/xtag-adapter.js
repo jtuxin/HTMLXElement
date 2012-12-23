@@ -56,11 +56,19 @@ define(function(require, exports) {
     }},
 
     'adapt-get': { value: function(field, descriptor) {
-      this.getters[field] = descriptor.get || descriptor.value;
+      if (descriptor.get)
+        this.getters[field] = descriptor.get;
+
+      else for (field in descriptor.value)
+        this.getters[field] = descriptor.value[field];
     }},
 
     'adapt-set': { value: function(field, descriptor) {
-      this.setters[field] = descriptor.set || descriptor.value;
+      if (descriptor.set)
+        this.setters[field] = descriptor.set;
+
+      else for (field in descriptor.value)
+        this.setters[field] = descriptor.value[field];
     }},
 
     'adapt-created': { value: function(field, descriptor) {

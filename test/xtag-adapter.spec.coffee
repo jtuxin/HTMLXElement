@@ -31,3 +31,14 @@ define (require) -> describe 'xtag-adapter', ->
     expect(adapter.getters).to.have.property('internal').that.is.a('function')
     expect(adapter.setters).to.have.property('internal').that.is.a('function')
     null
+
+  it 'should adapt get/set objects as xtag getters/setters', ->
+    adapter = new Adapter
+      get:
+        test: -> @_test
+      set:
+        test: (val) -> @_test = val
+    
+    expect(adapter.getters).to.have.property('test').that.is.a('function')
+    expect(adapter.setters).to.have.property('test').that.is.a('function')
+    null
