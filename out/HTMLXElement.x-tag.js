@@ -23,7 +23,7 @@ define('HTMLXElement/Adapter',['require','exports','module'],function(require, e
       this[field] = defaults[field];
 
     for (override in overrides) {
-      descriptor = objDescriptor(overrides, override);
+      descriptor = objDescriptor(overrides, override) || {};
       matches    = this.adapt(override, descriptor);
       
       for (var i = 0, l = matches.length; i < l; i++)
@@ -50,15 +50,13 @@ define('HTMLXElement/Adapter',['require','exports','module'],function(require, e
         var that  = this;
         var tests = this.tests;
 
-        var types = Object.keys(tests).filter(function(type) {
+        return Object.keys(tests).filter(function(type) {
           var testArr = Array.isArray(tests[type])? tests[type] : [tests[type]];
 
           return testArr.filter(isFunction).some(function(test) {
             return test.call(that, field, descriptor);
           });
         });
-
-        return types.length > 0 ? types : null;
       }
     }
   });

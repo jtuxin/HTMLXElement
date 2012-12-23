@@ -22,7 +22,7 @@ define(function(require, exports, module) {
       this[field] = defaults[field];
 
     for (override in overrides) {
-      descriptor = objDescriptor(overrides, override);
+      descriptor = objDescriptor(overrides, override) || {};
       matches    = this.adapt(override, descriptor);
       
       for (var i = 0, l = matches.length; i < l; i++)
