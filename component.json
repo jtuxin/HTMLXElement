@@ -1,0 +1,12 @@
+{
+  "name": "HTMLXElement",
+  "version": "0.0.1",
+  "main": [],
+
+  "dependencies": {
+    "chai": "1.4.x",
+    "require-cs": "git://github.com/jrburke/require-cs#0.4.x",
+    "rjs": "2.1.x",
+  	"x-tag": "git://github.com/mozilla/x-tag#0.5.x"
+  }
+}
