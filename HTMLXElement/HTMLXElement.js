@@ -13,6 +13,11 @@ define(function(require, exports, module) {
     return document.createElement('x-'+this.constructor.tagName);
   }
 
+  /**
+   * @method register
+   * @param {String} [to=this] Constructor to register
+   * @param {String} [tag='x'+to.name] name to use for the registered element
+   */
   HTMLXElement.register = function(to, tag) {
     tag = typeof to === 'string' ? to : tag;
     to  = typeof to === 'object' && to || this;
@@ -22,7 +27,9 @@ define(function(require, exports, module) {
 
     to.tagName = typeof tag === 'string' ? tag : 'x-'+camelToDashed(name(to));
     
-    return adapter.register(to.tagName, to.prototype);
+    adapter.register(to.tagName, to.prototype);
+
+    return to;
   };
 
   HTMLXElement.prototype = Object.create(HTMLElement.prototype, {
