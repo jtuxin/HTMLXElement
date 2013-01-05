@@ -4,8 +4,7 @@
   "main": ["./out/HTMLXElement.x-tag.js", "./out/HTMLXElement.x-tag.wrapped.js"],
 
   "dependencies": {
-    "chai": "1.4.x",
     "rjs": "2.1.x",
-  	"x-tag": "0.5.x"
+    "x-tag": "0.5.x"
   }
 }
