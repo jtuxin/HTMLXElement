@@ -1,6 +1,6 @@
 {
   "name": "HTMLXElement",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "main": ["./out/HTMLXElement.x-tag.js", "./out/HTMLXElement.x-tag.wrapped.js"],
 
   "dependencies": {
